@@ -27,13 +27,13 @@ const App = () => {
     googleCreds.then((user) => { console.log(user) })
 
       .catch((error) => {
-        console.log(error)
-      })
-  }
+        console.log(error);
+      });
+  };
 
   return (
     <View style={styles.login}>
-      <Button title='Google' onPress={() => signInAsync().then(() => console.log())}></Button>
+      <Button title="Google" onPress={() => signInAsync().then(() => console.log())} />
     </View>
   );
 };
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   login: {
     justifyContent: 'center',
     alignItems: 'center',
-  }
+  },
 });
 
 export default App;
