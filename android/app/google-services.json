@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "150294766809",
+    "project_id": "kollab-4c057",
+    "storage_bucket": "kollab-4c057.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:150294766809:android:68ddf33fd179ae3bd8cac8",
+        "android_client_info": {
+          "package_name": "com.kollab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "150294766809-2qnvao17dkmg27shb5mbsec730vp1vpq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kollab",
+            "certificate_hash": "cfe1c9b74b0045762bf48d3a416040f764a82afb"
+          }
+        },
+        {
+          "client_id": "150294766809-tgkku60hgbaenjdejej9q3dcqj482jaq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLvsB5ERbxuZnLrwxpXHmcw1mLuJaFKyk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "150294766809-tgkku60hgbaenjdejej9q3dcqj482jaq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
