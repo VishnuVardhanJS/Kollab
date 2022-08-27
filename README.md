@@ -6,7 +6,7 @@ Promotes Teamwork, and collaboration
 
 Basically it is an app for collaborating with people who has ideas or can post ideads which can include other people.
 
-## Failed Ideas To Add
+## Failed Ideas Which Are Yet To Be Added
 * Chatroom For the people to connect with
 * Flip Type cards which could have made UI more fun
 * Failed to fix some knows common bugs
