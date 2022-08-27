@@ -30,9 +30,6 @@ Basically it is an app for collaborating with people who has ideas or can post i
 * open the project directory in terminal
 * react-native run-android
 * wait for it to build and then the app is useable on AVD or connected phone
-```
-code blocks for commands
-```
 
 
 
