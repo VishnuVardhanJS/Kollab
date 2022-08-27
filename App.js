@@ -1,48 +1,47 @@
-import auth from '@react-native-firebase/auth';
-import React from 'react';
-import {Button, StyleSheet, View} from 'react-native';
-import { GoogleSignin } from '@react-native-google-signin/google-signin';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { View, Text } from 'react-native'
+import React from 'react'
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import Login from './src/Screens/Login'
+import Select from './src/Screens/Select';
+import CreateGroup from './src/Screens/CreateGroup';
+import Home from './src/Screens/Home';
+import About from './src/Screens/About';
 
-GoogleSignin.configure({
-  webClientId: '150294766809-tgkku60hgbaenjdejej9q3dcqj482jaq.apps.googleusercontent.com',
-});
-
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 const App = () => {
-
-
-  const signInAsync = async () => {
-    // Get the users ID token
-    const { idToken } = await GoogleSignin.signIn();
-
-    // Create a Google credential with the token
-    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-
-    // Sign-in the user with the credential
-    const googleCreds = auth().signInWithCredential(googleCredential);
-
-    googleCreds.then((user) => { console.log(user) })
-
-      .catch((error) => {
-        console.log(error)
-      })
-  }
-
   return (
-    <View style={styles.login}>
-      <Button title='Google' onPress={() => signInAsync().then(() => console.log())}></Button>
-    </View>
-  );
-};
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen 
+          name = "Login" 
+          options={{animationEnabled: false, header: () => null}}
+          component={Login}
+          />
+        <Stack.Screen 
+          name="select"
+          options={{animationEnabled: false, header: () => null}}
+          component={Select}
+        />
+        <Stack.Screen 
+          name="join"
+          options={{animationEnabled: false, header: () => null}}
+          component={Home}
+        />
+        <Stack.Screen 
+          name="create"
+          options={{animationEnabled: false, header: () => null}}
+          component={CreateGroup}
+        />
+        <Stack.Screen 
+          name="about"
+          options={{animationEnabled: false, header: () => null}}
+          component={About}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
+}
 
-const styles = StyleSheet.create({
-  login: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
-});
-
-export default App;
+export default App
