@@ -31,5 +31,11 @@ Basically it is an app for collaborating with people who has ideas or can post i
 * react-native run-android
 * wait for it to build and then the app is useable on AVD or connected phone
 
+### Images
+![Image1](https://ibb.co/NrLqf7k)
+![Image2](https://ibb.co/HpSkP9r)
+![Image3](https://ibb.co/MfxY0yM)
+![Image4](https://ibb.co/Mc5t5Yv)
+![Image5](https://ibb.co/hfjgJvQ)
 
 
