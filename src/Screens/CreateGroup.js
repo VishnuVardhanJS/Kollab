@@ -1,43 +1,56 @@
-import { View, Text, Keyboard, StyleSheet, TextInput, TouchableOpacity, Dimensions } from 'react-native'
-import React, { useState } from 'react'
+import { View, Text, Keyboard, StyleSheet, TextInput, TouchableOpacity, Dimensions, Image } from 'react-native'
+import React, { useState, useContext } from 'react'
 import firestore from '@react-native-firebase/firestore';
+import { setStates } from '../States';
 
 
 
-const CreateGroup = ({navigation}) => {
+const CreateGroup = ({ navigation }) => {
+    const conState = useContext(setStates)
     const dataRef = firestore().collection("kollabs")
     const [addName, setName] = useState('')
     const [addInfo, setInfo] = useState('')
     const [addDomain, setDomain] = useState('')
 
     const addField = () => {
-        if (addName && addName.length > 0) {
-            const data = {
-                domain: addDomain,
-                groupInfo: addInfo,
-                groupName: addName,
-                userList: []
+        if (conState.type == 'faculty') {
+            if (addName && addName.length > 0) {
+                const data = {
+                    domain: addDomain,
+                    eventInfo: addInfo,
+                    eventName: addName,
+                    date: new Date().toLocaleString('en-IN', { hour12: true, hourCycle: 'h12', timeZone: 'Asia/Kolkata' }),
+                }
+                dataRef.add(data).then(() => {
+                    setName('')
+                    setDomain('')
+                    setInfo('')
+                    Keyboard.dismiss()
+                }).then(() => navigation.replace('select'))
+                    .catch((error) => {
+                        console.log(error)
+                    })
+            } else {
+                alert('Please fill all the fields')
             }
-            dataRef.add(data).then(() => {
-                setName('')
-                setDomain('')
-                setInfo('')
-                Keyboard.dismiss()
-            })
-                .catch((error) => {
-                    console.log(error)
-                })
+        } else {
+            alert('Only faculty can create a event')
         }
     }
 
     return (
-        <View style={{ flex: 1, justifyContent: 'space-around', alignItems: 'center' ,backgroundColor: "#000", flexDirection: 'column' }}>
-            <Text style={styles.logo}>Kollab</Text>
+        <View style={{ flex: 1, justifyContent: 'space-around', alignItems: 'center', backgroundColor: "#000", flexDirection: 'column' }}>
+            <Text style={styles.logo} onPress={() => navigation.replace('select')}>Kollab</Text>
+            <View style={styles.backContainer}>
+                <TouchableOpacity style={styles.backbtn} onPress={() => navigation.replace('select')}>
+                    <Image source={require("../../assets/Img/choice.png")} style={styles.icon}></Image>
+                </TouchableOpacity>
+            </View>
             <View style={styles.formContainer}>
                 <View style={styles.inputBox}>
                     <TextInput
                         style={styles.input}
-                        placeholder="Enter Kollab Name"
+                        placeholder="Enter Event Name"
                         placeholderTextColor={"#aaa"}
                         onChangeText={(heading) => setName(heading)}
                         value={addName} />
@@ -56,8 +69,8 @@ const CreateGroup = ({navigation}) => {
                         value={addInfo} />
                 </View>
                 <TouchableOpacity style={styles.btn}
-                    onPress={addField }>
-                    <Text style={styles.Buttontext}>Create Kollab</Text>
+                    onPress={addField}>
+                    <Text style={styles.Buttontext}>Create Event</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -65,7 +78,7 @@ const CreateGroup = ({navigation}) => {
 }
 
 const styles = StyleSheet.create({
-    description:{    
+    description: {
         height: 80,
         width: Dimensions.get('window').width - 50,
         borderRadius: 5,
@@ -127,12 +140,33 @@ const styles = StyleSheet.create({
         color: 'white',
         padding: 10
     },
-    logo:{
+    logo: {
         paddingTop: 50,
-        fontWeight:'bold',
-        fontSize:100,
-        color:'white',
-      }
+        fontWeight: 'bold',
+        fontSize: 100,
+        color: 'white',
+    }, icon: {
+        position: 'absolute',
+        height: 30,
+        width: 30,
+        marginRight: 20,
+        marginTop: 0,
+        top: 0,
+
+    },
+    backbtn: {
+
+        fontWeight: 'bold',
+        fontSize: 40,
+        color: 'white',
+        paddingLeft: 20,
+        paddingTop: 20
+
+    },
+    backContainer: {
+        position: 'absolute',
+        left: 20,
+    }
 })
 
 export default CreateGroup
