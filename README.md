@@ -32,10 +32,10 @@ Basically it is an app for collaborating with people who has ideas or can post i
 * wait for it to build and then the app is useable on AVD or connected phone
 
 ### Images
-![Image1](https://ibb.co/NrLqf7k)
-![Image2](https://ibb.co/HpSkP9r)
-![Image3](https://ibb.co/MfxY0yM)
-![Image4](https://ibb.co/Mc5t5Yv)
-![Image5](https://ibb.co/hfjgJvQ)
+![Image1](https://raw.githubusercontent.com/VishnuVardhanJS/Kollab/main/Screenshots/1.jpg)
+![Image2](https://raw.githubusercontent.com/VishnuVardhanJS/Kollab/main/Screenshots/2.jpg)
+![Image3](https://raw.githubusercontent.com/VishnuVardhanJS/Kollab/main/Screenshots/3.jpg)
+![Image4](https://raw.githubusercontent.com/VishnuVardhanJS/Kollab/main/Screenshots/4.jpg)
+![Image5](https://raw.githubusercontent.com/VishnuVardhanJS/Kollab/main/Screenshots/5.jpg)
 
 
